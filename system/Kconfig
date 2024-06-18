@@ -1,0 +1,60 @@
+# SPDX-License-Identifier: GPL-2.0-only                                                 
+
+comment "Lingmo OS System Settings"
+
+menu "Lingmo OS Build Config"
+
+choice
+	bool
+	prompt "The Lingmo OS Default Download Sources"
+
+config DEFAULT_SOURCES_LINGMO
+	bool
+ 	prompt "Lingmo OS Official Source"
+
+config DEFAULT_SOURCES_DEBIAN
+	bool
+	prompt "Debian GNU/Linux Official Source"
+
+endchoice
+
+config SYSTEM_CODE
+	string 
+	prompt "The Lingmo OS Code Name"
+
+config SYSTEM_VERSION
+	string
+	prompt "The System Version"
+
+choice
+
+	bool
+	prompt "System Release & other Type"
+
+config SYSTEM_TYPE_BETa
+	bool
+	prompt "Beta"
+
+config SYSTEM_TYPE_RELEASE
+	bool
+	prompt "Stable(Release)"
+
+config SYSTEM_TYPE_UNSTABLE
+	bool
+	prompt "Unstable"
+
+endchoice
+
+config SYSTEM_DEBUG
+	bool
+	default n
+	prompt "System Debug"
+
+config SYSTEM_DESKTOP
+	bool
+	default y
+	prompt "System Desktop"
+
+endmenu
+
+comment "Linux Kernel Settings"
