@@ -1,0 +1,17 @@
+# srctree = ..
+
+# include $(srctree)/scripts/Kbuild.include
+# :?include $(srctree)/scripts/Makefile.lib
+
+.PHONY: bootstrap
+build_dir = build
+bootstrap:
+	@export PATH="bootstrap:$PATH"
+	@echo "build"
+	@ls
+
+ifeq ($(wildcard build/),)
+	@mkdir -p $(build_dir)
+else
+	@echo "Strat build"
+endif

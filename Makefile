@@ -10,6 +10,10 @@ NAME = Hurr durr I'ma ninja sloth
 # More info can be located in ./README
 # Comments in this file are targeted only to the developer, do not
 # expect to learn how to build the kernel reading this file.
+#
+
+# Bootstrap
+CODENAME = $(CONFIG_SYSTEM_CODE)
 
 ifeq ($(filter undefine,$(.FEATURES)),)
 $(error GNU Make >= 3.82 is required. Your Make version is $(MAKE_VERSION))
@@ -1432,6 +1436,15 @@ PHONY += dt_compatible_check
 dt_compatible_check: dt_binding_check
 	$(Q)$(MAKE) $(build)=Documentation/devicetree/bindings $@
 
+
+# ---------------------------------------------------------------------------
+#  Bootsrtap
+
+PHONY += build_fs
+
+build_fs:
+	$(MAKE) -f $(srctree)/bootstrap/Makefile.bootstrap
+
 # ---------------------------------------------------------------------------
 # Modules
 
@@ -2059,3 +2072,4 @@ FORCE:
 # Declare the contents of the PHONY variable as phony.  We keep that
 # information in a variable so we can use it in if_changed and friends.
 .PHONY: $(PHONY)
+
