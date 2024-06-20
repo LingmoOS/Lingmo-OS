@@ -32,4 +32,4 @@ source "lib/Kconfig"
 
 source "lib/Kconfig.debug"
 
-source "wiki/Kconfig"
+source "Documentation/Kconfig"
