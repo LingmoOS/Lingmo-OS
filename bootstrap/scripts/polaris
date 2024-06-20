@@ -1,0 +1,18 @@
+mirror_style release
+download_style apt
+finddebs_style from-indices
+variants - buildd fakechroot minbase
+# keyring /usr/share/keyrings/debian-archive-keyring.gpg
+
+# include common settings
+if [ -e "$SYSBOOTSTRAP_DIR/scripts/system-common" ]; then
+ . "$SYSBOOTSTRAP_DIR/scripts/system-common"
+elif [ -e /sysbootstrap/system-common ]; then
+ . /sysbootstrap/syste-common
+elif [ -e "$SYSBOOTSTRAP_DIR/system-common" ]; then
+ . "$SYSBOOTSTRAP_DIR/system-common"
+else
+ error 1 NOCOMMON "File not found: system-common"
+fi
+
+
