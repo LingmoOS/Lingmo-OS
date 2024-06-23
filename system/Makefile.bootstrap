@@ -1,0 +1,29 @@
+# srctree = ..
+
+# include $(srctree)/scripts/Kbuild.include
+# :?include $(srctree)/scripts/Makefile.lib
+
+.PHONY: all
+SHELL = bash
+SYSTEM_BUILD = system/build
+MKS = system/mksf
+MKISO = system/mkiso
+SHA = system/mksha
+all:
+	${SHELL}${SYSTEM_BUILD}
+
+mk-mfs:
+	${SHELL}${MKS}
+
+mk-iso:
+	${SHELL}${MKISO}
+
+mk-sha:
+	${SHELL}${SHA}
+
+
+# ifeq ($(wildcard build/),)
+#	@mkdir -p $(build_dir)
+# else
+# 	@echo "Strat build"
+# endif

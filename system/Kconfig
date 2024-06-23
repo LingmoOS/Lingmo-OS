@@ -31,7 +31,7 @@ choice
 	bool
 	prompt "System Release & other Type"
 
-config SYSTEM_TYPE_BETa
+config SYSTEM_TYPE_BETA
 	bool
 	prompt "Beta"
 
@@ -44,6 +44,10 @@ config SYSTEM_TYPE_UNSTABLE
 	prompt "Unstable"
 
 endchoice
+
+config SYSTEM_ARCH
+	string
+	prompt "Arch"
 
 config SYSTEM_DEBUG
 	bool

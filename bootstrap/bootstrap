@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+source .config
+source bootstrap/base_config
+$DEF_SAVE_URL="bootstrap/sources.list"
+
+if [ $CONFIG_DEFAULT_SOURCES_LINGMO="y" ]
+then
+	# cat $CONFIG_LM_URL >> $DEF_SAVE_URL
+	echo "use Lingmo OS Official Sources"
+else
+	cat $CONFIG_DEB_URL >> $DEF_SAVE_URL
+fi
+
+source $DEF_SAVE_URL
+$GET_SOURCES="cat $DEF_SAVE_URL"
+
+sysbootstrap --arch=$CONFIG_SYSTEM_ARCH $CONFIG_SYSTEM_CODE $DEF_BUILD_DIR $GET_SOURCES
+
+echo "Basic file system build complete"

@@ -7,8 +7,8 @@
 build_dir = build
 bootstrap:
 	@export PATH="bootstrap:$PATH"
-	@echo "build"
-	@ls
+	@chmod +x bootstrap/*
+	@bootstrap
 
 ifeq ($(wildcard build/),)
 	@mkdir -p $(build_dir)

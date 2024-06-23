@@ -1,0 +1,4 @@
+CONFIG_LM_URL=https://packages.lingmo.org
+CONFIG_DEB_URL=https://deb.debian.org/debian
+
+DEF_BUILD_DIR=build/sys_rootfs
