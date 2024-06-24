@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+source system/build.config
+source build.config
+
+${MKISO_TOOLS} -as ${AS_ISO} -R -r -J -joliet-long -l -cache-inodes -iso-level 3 -isohybrid-mbr ${BIN_ISO} -partition_offset 16 -A "${SYSTEM_NAME}" -p "${BUILD_VERSION}; ${BUILD_URL}" -publisher "${PROJECT}" -V "${SYSTEM_NAME} ${TYPE}" --modification-date=${DATE_SYS} -b ${ISO_LINUX_BIN} -c ${BOOT} -no-emul-boot -boot-load-size 4 -boot-info-table -eltorito-alt-boot -e ${EFI} -no-emul-boot -isohybrid-gpt-basdat -isohybrid-apm-hfsplus -o live-image-amd64.hybrid.iso binary
